@@ -271,4 +271,3 @@ let colors = [
     }
   ]
 
-colors.indexOf
