@@ -1,6 +1,7 @@
 function data() {
   return {
     data: [
+
       {
         "geboortedatum": "13-01-1994",
         "geboorteplaats": "\"52°17'39.2\"\"N 4°57'30.3\"\"E\"",
