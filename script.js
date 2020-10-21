@@ -10,9 +10,15 @@ var surveyAnswer = data
 
 const colomnName = "oogKleur"
 
-const specificAnswer = surveyAnswer.map(answer => answer[colomnName]).filter()
+const specificAnswer = surveyAnswer.map(answer => answer[colomnName].toUpperCase())
 
-console.log(specificAnswer)
+const hexedValues = specificAnswer.filter((color) => {
+    return color.length;
+})
+
+// .filter()
+
+// console.log(upperCasedEyeColors)
 
 // function getIrregular() {
 //     let listOfColors = []
@@ -21,26 +27,21 @@ console.log(specificAnswer)
 //         if (correctValue == true){
 //             listOfColors.push(answer[i])
 //         } else {
-            
+
 //         }
 //     }
 // }
 
-function getIrregularAnswers(searchTerm, startingPosition){
-    let listOfRegular = []
-    let listOfNoneSense = []
-    for (let i = 0; i < specificAnswer.length; i++) {
-        let correctValue = specificAnswer.startsWith(searchTerm, startingPosition);
-                if (correctValue == true){
-                    listOfRegular.push(answer[i])
-                    return
-                } else {
-                    listOfNoneSense.push(answer[i])
-                }
-      }
-}
-
-
-
-
-
+// function getIrregularAnswers(searchTerm, startingPosition){
+//     let listOfRegular = []
+//     let listOfNoneSense = []
+//     for (let i = 0; i < specificAnswer.length; i++) {
+//         let correctValue = specificAnswer.startsWith(searchTerm, startingPosition);
+//                 if (correctValue == true){
+//                     listOfRegular.push(answer[i])
+//                     return
+//                 } else {
+//                     listOfNoneSense.push(answer[i])
+//                 }
+//       }
+// }
