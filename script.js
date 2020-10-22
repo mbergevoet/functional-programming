@@ -10,27 +10,29 @@ const correctHexValues = specificAnswer.filter(color => color.length == 7)
 //separates the incorrect hex values and puts them into an array, all incorrect value's are typicly less or more than 7 characters
 const wrongValues = specificAnswer.filter(color => color.length != 7)
 //goes through all incorrect values and by checking if they contain a number a # is added to make the values correct hex value's
-// const correctedValues = wrongValues.filter(color => 
-//     color.hasNumbers(wrongValues)
-//     if (hasNumbers == true) {
-//         return 
-//     } else {
-// )
+
+const correctedValues = wrongValues.filter(color => 
+    color.hasNumbersAndLetters(wrongValues)
+    if (true){
+        //if true and lenght is 6 add #
+    }
+    //idk what to do :/
+)
+
 // color.length == 6
-// padStrart(0, "#")
+
 
 // sources for hasNumber function 
 // https://www.regextester.com/21
 // https://stackoverflow.com/questions/22100243/how-to-check-if-a-string-contains-a-number-in-javascript/36077900
 // https://www.xspdf.com/resolution/50918967.html
 
+//function that outputs true if a string contains numbers and letters
 function hasNumbersAndLetters(string) {
     const regex = /\d/g
     return regex.test(string)
-    
 }    
 
-console.log(hasNumbersAndLetters("T3ST5"))
 
 // console.log(specificAnswer)
 // console.log(correctHexValues)
