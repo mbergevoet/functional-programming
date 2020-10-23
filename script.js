@@ -1,23 +1,31 @@
 //all the data from survayAnswers.js is loaded into a single variable which i'm able to use later
 var surveyAnswer = data
 //the name of the colomn i want to extract data from
-const colomnName = "oogKleur"
+const colomnNameOne = "oogKleur"
+const colomnNameTwo = "geboorteplaats"
 
 //creates an array of all the eye color values and converts them to uppercase
 //with help from Sergio I was able to have a better map function
-const specificAnswer = surveyAnswer.map(answer => answer[colomnName]
-    .toUpperCase()
-    .replace("#", "")
-    .replace(" ", "")
-    .replace("BRUIN", "4F1B03")
-    .replace("LICHTBLAUW", "9BBCCC")
-    .replace("BLAUW", "6074A6")
-    .replace("GROEN", "045C41")
-    .replace("RGB(139.69,19)", "8B4513")
-    .padStart(7, "#")
+// const eyeColors = surveyAnswer.map(answer => answer[colomnNameOne]
+//     .toUpperCase()
+//     .replace("#", "")
+//     .replace(" ", "")
+//     .replace("BRUIN", "4F1B03")
+//     .replace("LICHTBLAUW", "9BBCCC")
+//     .replace("BLAUW", "6074A6")
+//     .replace("GROEN", "045C41")
+//     .replace("RGB(139.69,19)", "8B4513")
+//     .padStart(7, "#")
+// )
+
+// console.log(eyeColors)
+
+// https://stackoverflow.com/questions/1140189/converting-latitude-and-longitude-to-decimal-values
+const longLat = surveyAnswer.map(answer => answer[colomnNameTwo]
+    .replace(")", "")
 )
 
-console.log(specificAnswer)
+console.log(longLat)
 
 //separates correct hex values and puts them into an array
 // const correctHexValues = specificAnswer.filter(color => color.length == 7)
