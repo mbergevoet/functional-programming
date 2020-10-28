@@ -12,7 +12,7 @@ The datasets I will be using to answer this question are _Open Data Parkeren: TA
 **Assumptions** <br>
 My assumptions on this question are as follows:
 * I suspect parking rates in bigger cities and townships will be higher. This might be because they want to minimize the amount of cars in the city.
-* And I think the closer to the city centre you park your care the higher the rates will be. This is probably done to give pedestrians, cyclists and tourists in more space in crowded or shopping area's. That way they want to keep cars out to make it more safe. <br>
+* And I think the closer to the city centre you park your care the higher the rates will be. This is probably done to give pedestrians, cyclists and tourists in more space in crowded or shopping area's. That way they want to keep cars out to make it more safe.
 <br>
 **Sub-questions**
 - What do I define as favorable?
