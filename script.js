@@ -1,8 +1,12 @@
+///////////////////
+//      WIP     //
+//////////////////
+
 //all the data from survayAnswers.js is loaded into a single variable which i'm able to use later
-var surveyAnswer = data
+const surveyAnswer = data
 //the name of the colomn i want to extract data from
 const colomnNameOne = "oogKleur"
-const colomnNameTwo = "geboorteplaats"
+// const colomnNameTwo = "geboorteplaats"
 
 //creates an array of all the eye color values and converts them to uppercase
 //with help from Sergio I was able to have a better map function
@@ -10,39 +14,34 @@ const eyeColors = surveyAnswer.map(answer => answer[colomnNameOne]
     .toUpperCase()
     .replace("#", "")
     .replace(" ", "")
-    .replace("BRUIN", "4F1B03")
-    .replace("LICHTBLAUW", "9BBCCC")
-    .replace("BLAUW", "6074A6")
-    .replace("GROEN", "045C41")
-    .replace("RGB(139.69,19)", "8B4513")
-    .padStart(7, "#")
 )
 
 console.log(eyeColors)
 
-// https://stackoverflow.com/questions/1140189/converting-latitude-and-longitude-to-decimal-values
-const longLat = surveyAnswer.map(answer => answer[colomnNameTwo]
-    .replace(")", "")
-)
-
-console.log(longLat)
-
 //separates correct hex values and puts them into an array
-// const correctHexValues = specificAnswer.filter(color => color.length == 7)
+const correctHexValues = eyeColors.filter(color => color.length == 6)
 //separates the incorrect hex values and puts them into an array, all incorrect value's are typicly less or more than 7 characters
-// const wrongValues = specificAnswer.filter(color => color.length != 7)
+const wrongValues = eyeColors.filter(color => color.length != 6)
 //goes through all incorrect values and by checking if they contain a number a # is added to make the values correct hex value's
+const rgbValues = wrongValues.filter(color => color.startsWith = "RGB")
+rgbValues.rgbToHex()
 
-// const correctedValues = wrongValues.filter(color => 
-//     color.hasNumbersAndLetters(wrongValues)
-//     if (true){
-//         if true and lenght is 6 add #
-//     }
-//     idk what to do :/
-// )
+// https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+}
+  
+function rgbToHex(r, g, b) {
+    return componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
 
-// color.length == 6
-
+function lettersToDigits(arr) {
+    arr.replace("BRUIN", "4F1B03")
+    arr.replace("LICHTBLAUW", "9BBCCC")
+    arr.replace("BLAUW", "6074A6")
+    arr.replace("GROEN", "045C41")
+}
 
 // sources for hasNumber function 
 // https://www.regextester.com/21

@@ -4,7 +4,7 @@ const apiUrlOne = "https://opendata.rdw.nl/resource/534e-5vdg.json"
 const apiUrlTwo = "https://opendata.rdw.nl/resource/nfzq-8g7y.json"
 const specificColumn = "amountfarepart" 
 
-// Code adapted from Lauren Aarnoudse AKA RazPudding
+// Code adapted from Lauren Aarnoudse AKA Razpudding
 
 // gets the data from the API url
 getData(apiUrlOne)
