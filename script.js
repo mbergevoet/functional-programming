@@ -2,6 +2,14 @@
 //      WIP     //
 //////////////////
 
+// How my code will be working once its done
+//  1. Gets the data from the other js file
+//  2. Uppercases the data and removes spaces and hastags
+//  3. Filters out the correct HEX values 
+//  4. Filters out written colors and replaces them with HEX values
+//  5. Filters out RGB colors and converts it to HEX
+//  6. Puts all the correct data back together 
+
 //all the data from survayAnswers.js is loaded into a single variable which i'm able to use later
 const surveyAnswer = data
 //the name of the colomn i want to extract data from
