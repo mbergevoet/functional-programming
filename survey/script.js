@@ -26,6 +26,10 @@ const eyeColors = surveyAnswer.map(answer => answer[colomnNameOne]
     .toUpperCase()
     .replace("#", "")
     .replace(" ", "")
+    .replace("BRUIN", brownHex)
+    .replace("LICHTBLAUW", lightBlueHex)
+    .replace("BLAUW", blueHex)
+    .replace("GROEN", greenHex)
 )
 
 console.log(eyeColors)
@@ -34,28 +38,42 @@ console.log(eyeColors)
 const correctHexValues = eyeColors.filter(color => color.length == 6)
 //separates the incorrect hex values and puts them into an array, all incorrect value's are typicly less or more than 6 characters
 const wrongValues = eyeColors.filter(color => color.length != 6)
-// source https://stackoverflow.com/questions/40454296/filter-a-list-element-starting-with-a-letter-in-javascript
-const rgbValues = wrongValues.filter((color) => color.startsWith("RGB"))
 
-rgbValues.rgbToHex(rgbValues[0])
+// console.log(hexValues)
+// console.log(correctHexValues[0])
+// console.log(wrongValues)
+
+// source https://stackoverflow.com/questions/40454296/filter-a-list-element-starting-with-a-letter-in-javascript
+const halfRgbValues = wrongValues.filter((rgb) => rgb.startsWith("RGB"))
+const rgbValues = halfRgbValues.map(rgb => rgb
+    .replace("RGB", "")
+    .replace("(", "")
+    .replace(")", "")
+    .replace(".", " ")
+    .replace(",", " ")
+    .split(" ")
+)
+
+const correctRgb = rgbToHex(rgbValues);
+
+// console.log(halfRgbValues)
+// console.log(correctHexValues)
+console.log(correctRgb)
+
+// const eyeColors = surveyAnswer.map(hex => hex[0].padStart(7, "#"))
+
+// const correctedRGB = rgbValues.rgbToHex(rgbValues[0])
 
 // source: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
-function componentToHex(c) {
-    var hex = c.toString(16);
+function componentToHex(rgbComponent) {
+    let hex = rgbComponent.toString(16);
     return hex.length == 1 ? "0" + hex : hex;
 }
   
-function rgbToHex(r, g, b) {
-    return componentToHex(r) + componentToHex(g) + componentToHex(b);
-}
-
-function lettersToDigits(array) {
-    array.replace("BRUIN", brownHex)
-    array.replace("LICHTBLAUW", lightBlueHex)
-    array.replace("BLAUW", blueHex)
-    array.replace("GROEN", greenHex)
-}
-
-// console.log(specificAnswer)
-// console.log(correctHexValues)
-// console.log(wrongValues)
+// Code adapted from Veerle Prins
+function rgbToHex (arr) {
+    const int1 = parseInt(arr[0]);
+    const int2 = parseInt(arr[1]);
+    const int3 = parseInt(arr[2]);
+    return componentToHex(int1) + componentToHex(int2) + componentToHex(int3);
+};
