@@ -44,25 +44,31 @@ const wrongValues = eyeColors.filter(color => color.length != 6)
 // console.log(wrongValues)
 
 // source https://stackoverflow.com/questions/40454296/filter-a-list-element-starting-with-a-letter-in-javascript
-const halfRgbValues = wrongValues.filter((rgb) => rgb.startsWith("RGB"))
-const rgbValues = halfRgbValues.map(rgb => rgb
+const halfRgbValues = wrongValues.filter(rgb => rgb.startsWith("RGB"))
+console.log(halfRgbValues)
+
+let rgbValues = halfRgbValues[0]
     .replace("RGB", "")
     .replace("(", "")
     .replace(")", "")
     .replace(".", " ")
     .replace(",", " ")
     .split(" ")
-)
+
+
+console.log(rgbValues)
 
 const correctRgb = rgbToHex(rgbValues);
 
-// console.log(halfRgbValues)
+correctHexValues.push(correctRgb)
+
 // console.log(correctHexValues)
-console.log(correctRgb)
+
+correctHexValues.forEach(item => {item.replace("", "#")})
+
+console.log(correctHexValues)
 
 // const eyeColors = surveyAnswer.map(hex => hex[0].padStart(7, "#"))
-
-// const correctedRGB = rgbValues.rgbToHex(rgbValues[0])
 
 // source: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
 function componentToHex(rgbComponent) {
@@ -72,8 +78,9 @@ function componentToHex(rgbComponent) {
   
 // Code adapted from Veerle Prins
 function rgbToHex (arr) {
-    const int1 = parseInt(arr[0]);
-    const int2 = parseInt(arr[1]);
-    const int3 = parseInt(arr[2]);
+    let int1 = parseInt(arr[0]);
+    let int2 = parseInt(arr[1]);
+    let int3 = parseInt(arr[2]);
+    console.log(int1, int2, int3)
     return componentToHex(int1) + componentToHex(int2) + componentToHex(int3);
-};
+}
