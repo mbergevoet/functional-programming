@@ -58,11 +58,9 @@ let rgbValues = halfRgbValues[0]
 
 console.log(rgbValues)
 
-const correctRgb = rgbToHex(rgbValues);
+const correctRgb = rgbToHex(rgbValues)
 
 correctHexValues.push(correctRgb)
-
-// console.log(correctHexValues)
 
 correctHexValues.forEach(item => {item.replace("", "#")})
 
@@ -72,15 +70,15 @@ console.log(correctHexValues)
 
 // source: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
 function componentToHex(rgbComponent) {
-    let hex = rgbComponent.toString(16);
-    return hex.length == 1 ? "0" + hex : hex;
+    let hex = rgbComponent.toString(16)
+    return hex.length == 1 ? "0" + hex : hex
 }
   
 // Code adapted from Veerle Prins
 function rgbToHex (arr) {
-    let int1 = parseInt(arr[0]);
-    let int2 = parseInt(arr[1]);
-    let int3 = parseInt(arr[2]);
+    let int1 = parseInt(arr[0])
+    let int2 = parseInt(arr[1])
+    let int3 = parseInt(arr[2])
     console.log(int1, int2, int3)
-    return componentToHex(int1) + componentToHex(int2) + componentToHex(int3);
+    return componentToHex(int1) + componentToHex(int2) + componentToHex(int3)
 }

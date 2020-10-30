@@ -1,6 +1,9 @@
 # Functional programming
 
-This repository is ment to track my progress for the next two or six weeks. In the first week I'm trying to learn how to clean up datasets. For practice I'm using a dummy dataset which was a survey with all kinds of random questions that 92 students answered. Using `.map()` and `.filter()` I'm cleaning up the data and making one column have one format only. Currently I'm trying to clean op the colomn with eye colors (hex values). After this practice I will use parking data from the RDW insitute to make a data visualisation using the D3 library.
+This repository is ment to track my progress for the next two or six weeks. In the first week I'm trying to learn how to clean up datasets. For practice I'm using a dummy dataset which was a survey with all kinds of random questions that 92 students answered. Using `.map()` and `.filter()` I'm cleaning up the data and making one column have one format only. Currently I'm trying to clean op the colomn with eye colors (hex values). During this course I not only focus on cleaning the data but also splitting up code in to chunks with functions (hence the name of the course). By doing this you avoid writing a lot of code multiple times over and you make your code reusable for other cases which can save you a lot of time. <br>
+After practecing with functional programming I will use parking data from the RDW insitute to make a data visualisation using the D3 library.<br>
+<br>
+So far I've made [these](https://github.com/mbergevoet/functional-programming/wiki/7.-%F0%9F%A7%BC-Data-Cleaning) functional patterns. This is further explaind in my wiki page.
 
 # Concept
 
