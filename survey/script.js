@@ -1,7 +1,3 @@
-///////////////////
-//      WIP     //
-//////////////////
-
 // How my code will be working once its done
 //  1. Gets the data from the other js file
 //  2. Uppercases the data and removes spaces and hastags
@@ -12,16 +8,15 @@
 
 //all the data from survayAnswers.js is loaded into a single variable which i'm able to use later
 const surveyAnswer = data
-//the name of the colomn i want to extract data from
+//The name of the colomn I want to extract data from
 const colomnNameOne = "oogKleur"
-// const colomnNameTwo = "geboorteplaats"
 const brownHex = "4F1B03"
 const blueHex = "6074A6"
 const lightBlueHex = "9BBCCC"
 const greenHex = "045C41"
 
-//creates an array of all the eye color values and converts them to uppercase
-//with help from Sergio I was able to have a better map function
+//Creates an array of all the eye color values and converts them to uppercase and removes spaces and hastags
+//Code adapted from Sergio Eijben
 const eyeColors = surveyAnswer.map(answer => answer[colomnNameOne]
     .toUpperCase()
     .replace("#", "")
@@ -32,21 +27,20 @@ const eyeColors = surveyAnswer.map(answer => answer[colomnNameOne]
     .replace("GROEN", greenHex)
 )
 
+//Shows all the eye color data in the console
 console.log(eyeColors)
 
-//separates correct hex values and puts them into an array
+//Checks if the hex values are six characters long and separates the correct hex values and puts them into an array
 const correctHexValues = eyeColors.filter(color => color.length == 6)
-//separates the incorrect hex values and puts them into an array, all incorrect value's are typicly less or more than 6 characters
+//Separates the incorrect hex values and puts them into an array, all incorrect values are less or more than 6 characters
 const wrongValues = eyeColors.filter(color => color.length != 6)
 
-// console.log(hexValues)
-// console.log(correctHexValues[0])
-// console.log(wrongValues)
-
 // source https://stackoverflow.com/questions/40454296/filter-a-list-element-starting-with-a-letter-in-javascript
+//Checks if only the array items starting with RGB are put into the new array
 const halfRgbValues = wrongValues.filter(rgb => rgb.startsWith("RGB"))
 console.log(halfRgbValues)
 
+//Prepares the value's fro conversion by removing brackets, commas, dots and the RGB text infront
 let rgbValues = halfRgbValues[0]
     .replace("RGB", "")
     .replace("(", "")
@@ -55,20 +49,29 @@ let rgbValues = halfRgbValues[0]
     .replace(",", " ")
     .split(" ")
 
-
+//Debug console.log to shows if the RGB values have propperly prepared for conversion
 console.log(rgbValues)
 
+//Passes the array of rgb values through the rgbToHex function
 const correctRgb = rgbToHex(rgbValues)
 
+//Pushes the corrected RGB values to HEX back into the main array
 correctHexValues.push(correctRgb)
 
-correctHexValues.forEach(item => {item.replace("", "#")})
+//Adds the hashtags back in front of each item in the array
+//Source: https://stackoverflow.com/questions/20498409/adding-text-to-beginning-of-each-array-element
+for(let i=0;i<correctHexValues.length;i++){
+    correctHexValues[i]="#"+correctHexValues[i];
+}
 
+//This line wouldn't work for some reason :(
+// correctHexValues.forEach(item => {item.padStart(7, "#")})
+
+//Shows the final result in the console
 console.log(correctHexValues)
 
-// const eyeColors = surveyAnswer.map(hex => hex[0].padStart(7, "#"))
-
-// source: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+//Source: https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
+//These functions convert rgb values to hex
 function componentToHex(rgbComponent) {
     let hex = rgbComponent.toString(16)
     return hex.length == 1 ? "0" + hex : hex
