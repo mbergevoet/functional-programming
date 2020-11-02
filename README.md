@@ -26,7 +26,10 @@ My assumptions on this question are as follows:
 
 # Installation
 
-No installation needed as of yet.
+**Clone the this repository** 
+```js
+git clone https://github.com/mbergevoet/frontend-data
+```
 
 # Sources
 
